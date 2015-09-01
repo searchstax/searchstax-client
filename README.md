@@ -6,8 +6,14 @@
 
 #### Creating a collection
 
-    curl 'https://ss1111-solr.measuredsearch.com/solr/admin/collections?action=CREATE&name=helloworld&collection.configName=test&numShards=3'
+    curl 'https://ss111111-solr.measuredsearch.com/solr/admin/collections?action=CREATE&name=helloworld&collection.configName=test&numShards=3'
     
+#### Uploading data to a collection
+
+    curl  -X POST -H 'Content-type:application/json' -d @sample.json 'https://ss111111-solr.measuredsearch.com/solr/helloworld/update?commit=true'
+
 #### Querying a collection
 
-    curl 'https://ss1111-solr.measuredsearch.com/solr/helloworld/select?q=*:*&wt=json&indent=true'
+    curl 'https://ss111111-solr.measuredsearch.com/solr/helloworld/select?q=*:*&wt=json&indent=true'
+    
+
