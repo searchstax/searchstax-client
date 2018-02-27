@@ -24,12 +24,12 @@ curl 'https://ss111111-solr.measuredsearch.com/solr/helloworld/select?q=*:*&wt=j
 
 ## For versions 7.1.1 and above
 
-* Uploading a solr config to zookeeper
+* __Uploading a solr config to zookeeper__
 ```
 ./zkcli.sh -zkhost ss108280-1-us-east-1-aws.searchstax.co:2181 -cmd upconfig -confdir ../configsets/_default/conf/ -confname rahultestconfig 
 ```
 
-* Creating a collection
+* __Creating a collection__
 ```
 curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/admin/collections?action=CREATE&name=hellorahul&collection.configName=rahultestconfig&numShards=1&replicationFactor=1&maxShardsPerNode=1' -k
 ```
@@ -47,7 +47,7 @@ On success, it will produce an o/p
       "core":"hellorahul_shard1_replica_n1"}}}
 ```
 
-* Uploading data to a collection
+* __Uploading data to a collection__
 ```
 curl -X POST -H 'Content-type:application/json' -d @sample.json 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/hellorahul/update?commit=true' -k
 ```
@@ -59,7 +59,7 @@ On success, it will produce an o/p
     "QTime":47}}
 ```
 
-* Querying a collection
+* __Querying a collection__
 ```
 curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/hellorahul/select?q=*:*&wt=json&indent=true' -k
 ```
