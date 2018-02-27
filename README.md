@@ -1,4 +1,4 @@
-# searchstax-client
+# Searchstax Client
 
 ## For versions 6.6.2 and below
 
@@ -32,6 +32,9 @@ curl 'https://ss111111-solr.measuredsearch.com/solr/helloworld/select?q=*:*&wt=j
 * Creating a collection
 ```
 curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/admin/collections?action=CREATE&name=hellorahul&collection.configName=rahultestconfig&numShards=1&replicationFactor=1&maxShardsPerNode=1' -k
+```
+On success, it will produce an o/p
+```
 {
   "responseHeader":{
     "status":0,
@@ -42,12 +45,14 @@ curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/admin/collections?acti
         "status":0,
         "QTime":1889},
       "core":"hellorahul_shard1_replica_n1"}}}
-You have new mail in /var/mail/rahullakhanpal
 ```
 
 * Uploading data to a collection
 ```
 curl -X POST -H 'Content-type:application/json' -d @sample.json 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/hellorahul/update?commit=true' -k
+```
+On success, it will produce an o/p
+```
 {
   "responseHeader":{
     "status":0,
@@ -57,6 +62,9 @@ curl -X POST -H 'Content-type:application/json' -d @sample.json 'https://ss10828
 * Querying a collection
 ```
 curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/hellorahul/select?q=*:*&wt=json&indent=true' -k
+```
+On success, it will produce an o/p
+```
 {
   "responseHeader":{
     "zkConnected":true,
