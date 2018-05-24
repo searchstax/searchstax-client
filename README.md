@@ -24,6 +24,8 @@ curl 'https://ss111111-solr.measuredsearch.com/solr/helloworld/select?q=*:*&wt=j
 
 ## For versions 7.1.1 and above
 
+Do read the release notes from [Solr](https://lucene.apache.org/solr/guide/7_3/solr-upgrade-notes.html) for a better understanding.
+
 * __Uploading a solr config to zookeeper__
 ```
 ./zkcli.sh -zkhost ss108280-1-us-east-1-aws.searchstax.co:2181 -cmd upconfig -confdir ../configsets/_default/conf/ -confname rahultestconfig 
