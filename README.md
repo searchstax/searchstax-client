@@ -1,6 +1,6 @@
 # Searchstax Client
 
-# For DC keep replication_factor=3 for a HA collection while creating a collection and for DN it will remain 1. 
+## For DC keep replication_factor=3 for a HA collection while creating a collection and for DN it will remain 1. 
 
 ## For Solr versions 6.x
 
