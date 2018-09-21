@@ -1,5 +1,7 @@
 # Searchstax Client
 
+# For DC keep replication_factor=3 for a HA collection while creating a collection and for DN it will remain 1. 
+
 ## For Solr versions 6.x
 
 * Uploading Solr Config to Zookeepers
@@ -28,12 +30,12 @@ Do read the release notes from [Solr](https://lucene.apache.org/solr/guide/7_3/s
 
 * __Uploading a solr config to zookeeper__
 ```
-./zkcli.sh -zkhost ss108280-1-us-east-1-aws.searchstax.co:2181 -cmd upconfig -confdir ../configsets/_default/conf/ -confname rahultestconfig 
+./zkcli.sh -zkhost ss108280-1-us-east-1-aws.searchstax.co:2181 -cmd upconfig -confdir ../configsets/_default/conf/ -confname test 
 ```
 
 * __Creating a collection__
 ```
-curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/admin/collections?action=CREATE&name=hellorahul&collection.configName=rahultestconfig&numShards=1&replicationFactor=1&maxShardsPerNode=1' -k
+curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/admin/collections?action=CREATE&name=helloworld&collection.configName=test&numShards=1&replicationFactor=1&maxShardsPerNode=1' -k
 ```
 On success, it will produce an o/p
 ```
@@ -46,12 +48,12 @@ On success, it will produce an o/p
       "responseHeader":{
         "status":0,
         "QTime":1889},
-      "core":"hellorahul_shard1_replica_n1"}}}
+      "core":"helloworld_shard1_replica_n1"}}}
 ```
 
 * __Uploading data to a collection__
 ```
-curl -X POST -H 'Content-type:application/json' -d @sample.json 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/hellorahul/update?commit=true' -k
+curl -X POST -H 'Content-type:application/json' -d @sample.json 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/helloworld/update?commit=true' -k
 ```
 On success, it will produce an o/p
 ```
@@ -63,7 +65,7 @@ On success, it will produce an o/p
 
 * __Querying a collection__
 ```
-curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/hellorahul/select?q=*:*&wt=json&indent=true' -k
+curl 'https://ss108280-1-us-east-1-aws.searchstax.co/solr/helloworld/select?q=*:*&wt=json&indent=true' -k
 ```
 On success, it will produce an o/p
 ```
