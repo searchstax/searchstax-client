@@ -1,6 +1,6 @@
 # Searchstax Client
 
-## For versions 6.6.2 and below
+## For Solr versions 6.x
 
 * Uploading Solr Config to Zookeepers
 ```
