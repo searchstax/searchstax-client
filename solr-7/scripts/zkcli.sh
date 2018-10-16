@@ -21,17 +21,7 @@ fi
 #  -DzkDigestUsername=admin-user -DzkDigestPassword=CHANGEME-ADMIN-PASSWORD \
 #  -DzkDigestReadonlyUsername=readonly-user -DzkDigestReadonlyPassword=CHANGEME-READONLY-PASSWORD"
 
-clear
-echo starting.....
-sleep 2
-
 PATH=$JAVA_HOME/bin:$PATH $JVM $SOLR_ZK_CREDS_AND_ACLS $ZKCLI_JVM_FLAGS -Dlog4j.configuration=$log4j_config \
 -classpath "$sdir/../lib/*:$sdir/../lib/ext/*" org.apache.solr.cloud.ZkCLI ${1+"$@"}
 
-RETURN_CODE=$(echo $?)
-if [ -z $RETURN_CODE ];then 
-   echo Something went wrong.Please try again!!
-else
-   echo Configuration Successfully uploaded!
-fi
 
